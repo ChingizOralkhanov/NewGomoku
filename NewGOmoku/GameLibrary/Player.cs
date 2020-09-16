@@ -28,6 +28,7 @@ namespace NewGOmoku.GameLibrary
             moves.Add(move);
 
         }
+    
 
         public bool isValidLocation(char[,] b, int row, int col)
         {
@@ -42,10 +43,10 @@ namespace NewGOmoku.GameLibrary
         /// <returns></returns>
         public List<Move> getValidLocations(char[,] b, Player player)
         {
-            int row = Turn.playersTurn.move.row;
-            int col = Turn.playersTurn.move.col;
+            int row = player.move.row;
+            int col = player.move.col;
             var listOfValidLocations = new List<Move>();
-            if (BoardValidation.ValidateAll())
+            if (BoardValidation.ValidateAll(player))
             {
                 if (b[row - 1, col] == '_')
                 {

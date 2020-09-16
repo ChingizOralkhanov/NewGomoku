@@ -35,8 +35,7 @@ namespace NewGOmoku.GameLibrary
             b[7, 7] = player.Name;
             player.move.col = 7;
             player.move.row = 7;
-            Turn.playersTurn.Name = playerTwo.Name;
-            Turn.playersTurn.move = playerOne.move;
+            Turn.PlayersTurn = playerTwo.Name;
             player.countsToWin--;
         }
         /// <summary>
@@ -49,8 +48,7 @@ namespace NewGOmoku.GameLibrary
             b[8, 7] = player.Name;
             player.move.row = 8;
             player.move.col = 7;
-            Turn.playersTurn.Name = playerOne.Name;
-            Turn.playersTurn.move = playerTwo.move;
+            Turn.PlayersTurn = playerOne.Name; ;
             player.countsToWin--;
         }
 
