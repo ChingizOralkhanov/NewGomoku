@@ -33,7 +33,7 @@ namespace NewGOmoku.GameLibrary
                 game.board.b[location.row, location.col] = p.Name;
                 Turn.playersMoveCol = location.col;
                 Turn.playersMoveRow = location.row;
-
+                p.countsToWin++;
                 if(p.Name == Program.PLAYER1)
                 {
                     Turn.PlayersTurn = Program.PLAYER2;

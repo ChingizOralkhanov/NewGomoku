@@ -36,7 +36,7 @@ namespace NewGOmoku.GameLibrary
             player.move.col = 7;
             player.move.row = 7;
             Turn.PlayersTurn = playerTwo.Name;
-            player.countsToWin--;
+            player.countsToWin++;
         }
         /// <summary>
         /// Второй ход
@@ -45,11 +45,11 @@ namespace NewGOmoku.GameLibrary
         /// <param name="player"></param>
         public void secondMove(char[,] b, Player player)
         {
-            b[8, 7] = player.Name;
-            player.move.row = 8;
-            player.move.col = 7;
+            b[7, 6] = player.Name;
+            player.move.row = 7;
+            player.move.col = 6;
             Turn.PlayersTurn = playerOne.Name; ;
-            player.countsToWin--;
+            player.countsToWin++;
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace NewGOmoku.GameLibrary
         /// <returns>is Game is Over(won, lost, or not empty spaces)</returns>
         public bool isGameOver()
         {
-            if (BoardValidation.Win(board.b, playerOne.Name) || BoardValidation.Win(board.b, playerTwo.Name) && !isAnyMovesLeft())
+            if (BoardValidation.Win(board.b, playerOne.Name) || BoardValidation.Win(board.b, playerTwo.Name) || !isAnyMovesLeft())
             {
                 return true;
             }

@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AiLibrary\" />
+    <Compile Remove="AiLibrary\**" />
+    <EmbeddedResource Remove="AiLibrary\**" />
+    <None Remove="AiLibrary\**" />
   </ItemGroup>
 
 </Project>

@@ -29,11 +29,13 @@ namespace NewGOmoku
             {
                 row = g.playerOne.move.row;
                 col = g.playerOne.move.col;
+                count = g.playerOne.countsToWin;
             }
             else if(Turn.PlayersTurn == Program.PLAYER2)
             {
                 row = g.playerTwo.move.row;
                 col = g.playerTwo.move.col;
+                count = g.playerTwo.countsToWin;
             }
             // Проверка по вертикали
             if (row + 4 <= 11 && row - 4 >= 0)
@@ -46,13 +48,17 @@ namespace NewGOmoku
                         score += evaluateCell(Turn.PlayersTurn, count);
 
                     }
+                    else if (g.board.b[row, i] != Turn.PlayersTurn && g.board.b[row, i] != Program.EMPTY)
+                    {
+                        score = 0;
+
+                    }
                 }
 
                 countList.Add(count);
                 scoreList.Add(score);
 
-                score = 0;
-                count = 0;
+             
             }
             // Проверка по горизонтали
             if (col + 4 <= 11 && col - 4 >= 0)
@@ -64,11 +70,15 @@ namespace NewGOmoku
                         count++;
                         score += evaluateCell(Turn.PlayersTurn, count);
                     }
+                    else if (g.board.b[row,i] !=Turn.PlayersTurn && g.board.b[row,i] != Program.EMPTY)
+                    {
+                        score = 0;
+                        
+                    }
                 }
                 countList.Add(count);
                 scoreList.Add(score);
-                score = 0;
-                count = 0;
+    
             }
 
             if (col + 4 <= 11 && col - 4 >= 0 && row + 4 <= 11 && row - 4 >= 0)
@@ -80,14 +90,25 @@ namespace NewGOmoku
                         count++;
                         score += evaluateCell(Turn.PlayersTurn, count);
                     }
+                    else if (g.board.b[row, i] != Turn.PlayersTurn && g.board.b[row, i] != Program.EMPTY)
+                    {
+                        score = 0;
+
+                    }
                 }
                 countList.Add(count);
                 scoreList.Add(score);
-                score = 0;
-                count = 0;
+     
             }
-
-            score = scoreList.Max();
+            if(Turn.PlayersTurn == Program.PLAYER2)
+            {
+                score = scoreList.Min();
+            }
+            else
+            {
+                score = scoreList.Max();
+            }
+           
 
             return score;
         }

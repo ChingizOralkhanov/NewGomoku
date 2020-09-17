@@ -17,7 +17,7 @@ namespace NewGOmoku.GameLibrary
         /// Лист всех сделанных ходов игрока
         /// </summary>
         public List<Move> moves { get; set; }
-        public int countsToWin = 5;
+        public int countsToWin = 0;
         public Player(char name)
         {
             Name = name;

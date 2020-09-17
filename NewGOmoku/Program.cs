@@ -8,7 +8,6 @@ namespace NewGOmoku
 
     public static class Turn
     {
-        public static Player playersTurn = new Player('x');
         public static char PlayersTurn = 'x';
         public static int playersMoveRow = 0;
         public static int playersMoveCol = 0;
@@ -32,7 +31,7 @@ namespace NewGOmoku
                 if(Turn.PlayersTurn == game.playerOne.Name)
                 {
                     var move =  new Move();
-                    var newMove = move.makeBestMove(game, game.playerOne, 2);
+                    var newMove = move.makeBestMove(game, game.playerOne, 5);
                     game.board.makeNewMoveOnBoard(newMove, game.playerOne);
                     game.playerOne.move = newMove;
                     Console.WriteLine();
@@ -45,7 +44,7 @@ namespace NewGOmoku
                 else if(Turn.PlayersTurn == game.playerTwo.Name)
                 {
                     var move = new Move();
-                    var newMove = move.makeBestMove(game, game.playerTwo, 1);
+                    var newMove = move.makeBestMove(game, game.playerTwo, 4);
                     game.board.makeNewMoveOnBoard(newMove, game.playerTwo);
                     game.playerTwo.move = newMove;
                     Console.WriteLine();
